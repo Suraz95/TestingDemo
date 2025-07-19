@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-   "homepage": "https://Suraz95.github.io/TestingDemo/login",
+   "homepage": "https://Suraz95.github.io/TestingDemo",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
