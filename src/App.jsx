@@ -19,12 +19,8 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        {/* 👇 Default landing page is now Login */}
-        <Route path="/" element={<Login setUser={setUser} />} />
-        
-        {/* 👇 Protected home route moved to /home */}
         <Route
-          path="/home"
+          path="/"
           element={
             <ProtectedRoute>
               <Home />
@@ -39,6 +35,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
     </Router>
