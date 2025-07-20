@@ -5,53 +5,57 @@ const CalculationPage = () => {
   const [tempResult, setTempResult] = useState('');
   const [emiResult, setEmiResult] = useState('');
 
-  const handleSICalculate = () => {
-    const principal = parseFloat(document.getElementById('si-principal').value);
-    const rate = parseFloat(document.getElementById('si-rate').value);
-    const time = parseFloat(document.getElementById('si-time').value);
-    const isYearly = document.getElementById('si-type-yearly').checked;
+ const handleSICalculate = () => {
+  const principal = parseFloat(document.getElementById('si-principal').value);
+  const rate = parseFloat(document.getElementById('si-rate').value);
+  const time = parseFloat(document.getElementById('si-time').value);
+  const siType = document.querySelector('input[name="si-type"]:checked')?.id;
 
-    if (isNaN(principal) || isNaN(rate) || isNaN(time) || principal < 0 || rate < 0 || time < 0) {
-      setSiResult("Error: Invalid input.");
-      return;
-    }
+  if (isNaN(principal) || isNaN(rate) || isNaN(time) || principal < 0 || rate < 0 || time < 0) {
+    setSiResult("Error: Invalid input.");
+    return;
+  }
 
-    const t = isYearly ? time : time / 12;
-    const interest = (principal * rate * t) / 100;
-    setSiResult(`₹${interest.toFixed(2)}`);
-  };
+  const isYearly = siType === "Yearly";
+  const t = isYearly ? time : time / 12;
+  const interest = (principal * rate * t) / 100;
+  setSiResult(`₹${interest.toFixed(1)}`);
+};
 
-  const handleTempConvert = () => {
-    const temp = parseFloat(document.getElementById('temp-input').value);
-    const toCelsius = document.getElementById('to-celsius').checked;
+const handleTempConvert = () => {
+  const temp = parseFloat(document.getElementById('temp-input').value);
+  const tempType = document.querySelector('input[name="temp-type"]:checked')?.id;
 
-    if (isNaN(temp)) {
-      setTempResult("Error: Enter valid temperature.");
-      return;
-    }
+  if (isNaN(temp)) {
+    setTempResult("Error: Enter valid temperature.");
+    return;
+  }
 
-    const result = toCelsius
-      ? ((temp - 32) * 5) / 9
-      : (temp * 9) / 5 + 32;
-    const unit = toCelsius ? '°C' : '°F';
-    setTempResult(`${result.toFixed(2)} ${unit}`);
-  };
+  const toCelsius = tempType === "to-celsius";
+  const result = toCelsius
+    ? ((temp - 32) * 5) / 9
+    : (temp * 9) / 5 + 32;
+  const unit = toCelsius ? '°C' : '°F';
+  setTempResult(`${result.toFixed(1)} ${unit}`);
+};
 
-  const handleEMICalculate = () => {
-    const P = parseFloat(document.getElementById('emi-loan').value);
-    const R = parseFloat(document.getElementById('emi-rate').value) / 12 / 100;
-    const time = parseFloat(document.getElementById('emi-time').value);
-    const isYearly = document.getElementById('emi-type-yearly').checked;
+const handleEMICalculate = () => {
+  const P = parseFloat(document.getElementById('emi-loan').value);
+  const R = parseFloat(document.getElementById('emi-rate').value) / 12 / 100;
+  const time = parseFloat(document.getElementById('emi-time').value);
+  const emiType = document.querySelector('input[name="emi-type"]:checked')?.id;
 
-    if (isNaN(P) || isNaN(R) || isNaN(time) || P <= 0 || R < 0 || time <= 0) {
-      setEmiResult("Error: Invalid loan or interest input.");
-      return;
-    }
+  if (isNaN(P) || isNaN(R) || isNaN(time) || P <= 0 || R < 0 || time <= 0) {
+    setEmiResult("Error: Invalid loan or interest input.");
+    return;
+  }
 
-    const n = isYearly ? time * 12 : time;
-    const emi = (P * R * Math.pow(1 + R, n)) / (Math.pow(1 + R, n) - 1);
-    setEmiResult(`₹${emi.toFixed(2)} / month`);
-  };
+  const isYearly = emiType === "emi-Yearly";
+  const n = isYearly ? time * 12 : time;
+  const emi = (P * R * Math.pow(1 + R, n)) / (Math.pow(1 + R, n) - 1);
+  setEmiResult(`₹${emi.toFixed(1)} / month`);
+};
+
 
   return (
     <div className="min-h-screen p-6 bg-[#EFEEEA] text-[#000000]">
