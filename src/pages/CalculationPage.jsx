@@ -19,7 +19,7 @@ const CalculationPage = () => {
   const isYearly = siType === "Yearly";
   const t = isYearly ? time : time / 12;
   const interest = (principal * rate * t) / 100;
-  setSiResult(`₹${interest.toFixed(1)}`);
+  setSiResult(`${interest.toFixed(1)}`);
 };
 
 const handleTempConvert = () => {
@@ -53,7 +53,7 @@ const handleEMICalculate = () => {
   const isYearly = emiType === "emi-Yearly";
   const n = isYearly ? time * 12 : time;
   const emi = (P * R * Math.pow(1 + R, n)) / (Math.pow(1 + R, n) - 1);
-  setEmiResult(`₹${emi.toFixed(1)} / month`);
+  setEmiResult(`${emi.toFixed(1)} / month`);
 };
 
 
