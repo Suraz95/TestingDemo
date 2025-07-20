@@ -66,12 +66,12 @@ const CalculationPage = () => {
           <input id="si-time" type="text" placeholder="Time" className="mb-2 p-2 w-full border rounded" />
 
           <div className="mb-2">
-            <label className="mr-4"><input type="radio" id="si-type-yearly" name="si-type" defaultChecked /> Yearly</label>
-            <label><input type="radio" id="si-type-monthly" name="si-type" /> Monthly</label>
+            <label className="mr-4"><input type="radio" id="Yearly" name="si-type" defaultChecked /> Yearly</label>
+            <label><input type="radio" id="Monthly" name="si-type" /> Monthly</label>
           </div>
 
-          <button onClick={handleSICalculate} className="bg-[#FE7743] text-white px-4 py-2 rounded">Calculate</button>
-          <p className="mt-2">Result: <span className="font-semibold">{siResult}</span></p>
+          <button onClick={handleSICalculate} id="si-cal" className="bg-[#FE7743] text-white px-4 py-2 rounded">Calculate</button>
+          <p className="mt-2">Result: <span id="si-result" className="font-semibold">{siResult}</span></p>
         </div>
 
         {/* Temperature Converter */}
@@ -84,8 +84,8 @@ const CalculationPage = () => {
             <label><input type="radio" id="to-fahrenheit" name="temp-type" /> To Fahrenheit</label>
           </div>
 
-          <button onClick={handleTempConvert} className="bg-[#FE7743] text-white px-4 py-2 rounded">Convert</button>
-          <p className="mt-2">Result: <span className="font-semibold">{tempResult}</span></p>
+          <button onClick={handleTempConvert} id="to-cal" className="bg-[#FE7743] text-white px-4 py-2 rounded">Convert</button>
+          <p className="mt-2">Result: <span id='to-result' className="font-semibold">{tempResult}</span></p>
         </div>
 
         {/* EMI Calculator */}
@@ -96,12 +96,12 @@ const CalculationPage = () => {
           <input id="emi-time" type="text" placeholder="Time Period" className="mb-2 p-2 w-full border rounded" />
 
           <div className="mb-2">
-            <label className="mr-4"><input type="radio" id="emi-type-yearly" name="emi-type" defaultChecked /> Yearly</label>
-            <label><input type="radio" id="emi-type-monthly" name="emi-type" /> Monthly</label>
+            <label className="mr-4"><input type="radio" id="emi-Yearly" name="emi-type" defaultChecked /> Yearly</label>
+            <label><input type="radio" id="emi-Monthly" name="emi-type" /> Monthly</label>
           </div>
 
-          <button onClick={handleEMICalculate} className="bg-[#FE7743] text-white px-4 py-2 rounded">Calculate</button>
-          <p className="mt-2">Result: <span className="font-semibold">{emiResult}</span></p>
+          <button onClick={handleEMICalculate} id='emi-cal' className="bg-[#FE7743] text-white px-4 py-2 rounded">Calculate</button>
+          <p className="mt-2">Result: <span sid='emi-result' className="font-semibold">{emiResult}</span></p>
         </div>
       </div>
     </div>
