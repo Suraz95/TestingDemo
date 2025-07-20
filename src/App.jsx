@@ -7,6 +7,12 @@ import Admin from "./pages/Admin";
 import Navbar from "./components/Navbar";
 import ProtectedRoute from "./components/ProtectedRoute";
 
+// Pages
+import Alerts from "./pages/AlertsPage";
+import CalculationPage from "./pages/CalculationPage";
+import MouseEventsPage from "./pages/MouseEventsPage";
+import WaitsPage from "./pages/WaitsPage";
+
 function App() {
   const [user, setUser] = useState(null);
 
@@ -17,25 +23,30 @@ function App() {
 
   return (
     <Router>
-      <Navbar />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Home />
-          }
-        />
-        <Route
-          path="/admin"
-          element={
-            <ProtectedRoute adminOnly={true}>
-              <Admin />
-            </ProtectedRoute>
-          }
-        />
-        <Route path="/login" element={<Login setUser={setUser} />} />
-        <Route path="/signup" element={<Signup />} />
-      </Routes>
+      <div style={{ display: "flex", height: "100vh" }}>
+        <Navbar />
+        <div style={{ flex: 1, padding: "20px", overflowY: "auto" }}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route
+              path="/admin"
+              element={
+                <ProtectedRoute adminOnly={true}>
+                  <Admin />
+                </ProtectedRoute>
+              }
+            />
+            <Route path="/login" element={<Login setUser={setUser} />} />
+            <Route path="/signup" element={<Signup />} />
+
+            {/* Learning Pages */}
+            <Route path="/alerts" element={<Alerts />} />
+            <Route path="/calculations" element={<CalculationPage />} />
+            <Route path="/mouse-events" element={<MouseEventsPage />} />
+            <Route path="/waits" element={<WaitsPage />} />
+          </Routes>
+        </div>
+      </div>
     </Router>
   );
 }
