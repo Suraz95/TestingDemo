@@ -70,7 +70,7 @@ const handleEMICalculate = () => {
           <input id="si-time" type="text" placeholder="Time" className="mb-2 p-2 w-full border rounded" />
 
           <div className="mb-2">
-            <label className="mr-4"><input type="radio" id="Yearly" name="si-type" defaultChecked /> Yearly</label>
+            <label className="mr-4"><input type="radio" id="Yearly" name="si-type"  /> Yearly</label>
             <label><input type="radio" id="Monthly" name="si-type" /> Monthly</label>
           </div>
 
@@ -84,7 +84,7 @@ const handleEMICalculate = () => {
           <input id="temp-input" type="text" placeholder="Enter temperature" className="mb-2 p-2 w-full border rounded" />
 
           <div className="mb-2">
-            <label className="mr-4"><input type="radio" id="to-celsius" name="temp-type" defaultChecked /> To Celsius</label>
+            <label className="mr-4"><input type="radio" id="to-celsius" name="temp-type"/> To Celsius</label>
             <label><input type="radio" id="to-fahrenheit" name="temp-type" /> To Fahrenheit</label>
           </div>
 
@@ -100,7 +100,7 @@ const handleEMICalculate = () => {
           <input id="emi-time" type="text" placeholder="Time Period" className="mb-2 p-2 w-full border rounded" />
 
           <div className="mb-2">
-            <label className="mr-4"><input type="radio" id="emi-Yearly" name="emi-type" defaultChecked /> Yearly</label>
+            <label className="mr-4"><input type="radio" id="emi-Yearly" name="emi-type"  /> Yearly</label>
             <label><input type="radio" id="emi-Monthly" name="emi-type" /> Monthly</label>
           </div>
 
